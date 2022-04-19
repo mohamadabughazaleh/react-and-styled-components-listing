@@ -65,3 +65,4 @@ background-color:#000000cc ;
 cursor: pointer;
 } 
  `
+export const Abber=styled.abbr``

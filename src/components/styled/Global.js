@@ -6,7 +6,7 @@ padding: 0;
 box-sizing: border-box;
 }
 body {
-  background: ${({ theme }) => theme.colors.body};
+  background: ${({ theme ,gh}) =>gh? theme.colors.body:theme.colors.replace };
   font-family: sans-serif;
 }
 

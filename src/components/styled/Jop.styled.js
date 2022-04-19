@@ -12,7 +12,13 @@ height: auto;
 display: grid;
 grid-row-gap: 100px;
 }
+:hover img{
+  transform:rotate(360deg);
+  border:5px solid ${({theme})=>theme.colors.ch};
+  border-radius: 50%;
+  transition: 1s;
 
+}
 `
 export const Jopcolume=styled.div`
 display:flex;
@@ -60,6 +66,7 @@ border-left: 5px solid #58a9a7;
 export const Imgitem=styled.img`
 width: 90px;
 height: auto;
+
 @media (max-width: 495.57px){
   width: 65px;
         margin-top: -20%;
@@ -170,12 +177,13 @@ font-size: 15px;
 color:#5da5a4 ;
 font-weight: 700;
 margin: 5px;
-transition: 1s;
+transition: 0.5s;
 position: relative;
 :hover{
-background-color: #5da5a4;
-color: white;
-cursor: pointer
+  background-color: #5da5a4;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 `
 export const Columeright=styled.div`
