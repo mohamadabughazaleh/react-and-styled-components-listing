@@ -6,8 +6,7 @@ import { Container } from './components/styled/container';
 import { DivONE ,DivTOW,But , Spansearch,Abber } from './components/styled/Search.styled';
 import Jop from './components/Jop.js';
 import GlobalStyles from './components/styled/Global';
-import {Input} from './components/styled/but.styled'
-//import Search from './components/Search';
+import Button from './components/button';
 const theme={
   colors:{
   header:'#5DA4A4',
@@ -24,7 +23,9 @@ const theme={
 function App() {
 const[jops ,setjops]=useState([]);
 
-let [filters,setfilters]=useState([]);
+const[changebg,setchangebg]=useState(true)
+
+const [filters,setfilters]=useState([]);
 
  useEffect(()=>setjops(data),[]);
 
@@ -50,12 +51,11 @@ let [filters,setfilters]=useState([]);
  };
  const but=()=> setfilters([]);
  const filteredjobs=jops.filter(filterfun);
- const[changebg,setchangebg]=useState(true)
   return (
     <ThemeProvider theme={theme}>
     <GlobalStyles gh={changebg}/>
     <StyledHeader gt={changebg}  />
-    <Input onClick={()=>setchangebg(!changebg)} type="checkbox"></Input>
+    <Button BU={changebg} BUT={setchangebg}/>
     <Container>
     {filters.length>0 && (
     <DivONE >
@@ -72,8 +72,7 @@ let [filters,setfilters]=useState([]);
       )}
     {filteredjobs.map((item ,index)=>(
      <Jop key={index} item={item} handeletagclick={handeletagclick} />
-    ))}
-    
+    ))}    
     </Container>
     </ThemeProvider>
 
