@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect} from 'react'; 
 import  data from './API/data.json';
 import { ThemeProvider } from "styled-components";
 import { StyledHeader } from './components/styled/Header.styled';
@@ -7,6 +7,7 @@ import { DivONE ,DivTOW,But , Spansearch,Abber } from './components/styled/Searc
 import Jop from './components/Jop.js';
 import GlobalStyles from './components/styled/Global';
 import Button from './components/button';
+import Model from './components/Model';
 const theme={
   colors:{
   header:'#5DA4A4',
@@ -26,6 +27,8 @@ const[jops ,setjops]=useState([]);
 const[changebg,setchangebg]=useState(true)
 
 const [filters,setfilters]=useState([]);
+
+const [model,setmodel]=useState(false);
 
  useEffect(()=>setjops(data),[]);
 
@@ -53,13 +56,21 @@ const [filters,setfilters]=useState([]);
  const filteredjobs=jops.filter(filterfun);
   return (
     <ThemeProvider theme={theme}>
+
     <GlobalStyles gh={changebg}/>
-    <StyledHeader gt={changebg}  />
-    <Button BU={changebg} BUT={setchangebg}/>
+
+    <StyledHeader gt={changebg}/>
+
+    <Button  H={setmodel} L={model}/>
+
     <Container>
+
     {filters.length>0 && (
+
     <DivONE >
+
       <DivTOW >
+
       {filters.map((filter)=>(
         <Abber title="colse">  <Spansearch  onClick={()=> handelfilterclick(filter)}>
       {filter}
@@ -73,9 +84,9 @@ const [filters,setfilters]=useState([]);
     {filteredjobs.map((item ,index)=>(
      <Jop key={index} item={item} handeletagclick={handeletagclick} />
     ))}    
+    <Model BU={changebg}  BUT={setchangebg} M={ model} N={setmodel}/> 
     </Container>
-    </ThemeProvider>
-
+    </ThemeProvider>   
   );
 }
 export default App;
